@@ -24,4 +24,21 @@ public class MyServlet2 extends HttpServlet {
 		out.println("<h1>Bienvenido!!</h1>");
 	}
 
+	protected void doPost(HttpServletRequest request,
+						  HttpServletResponse response) throws ServletException, IOException {
+
+		// Obtener el nombre del formulario
+		String nombre = request.getParameter("nombre");
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+
+		// Generar página HTML con el mensaje de bienvenida
+		out.println("<html>");
+		out.println("<head><title>Bienvenida</title></head>");
+		out.println("<body>");
+		out.println("<h1>Bienvenido " + nombre + "!</h1>");
+		out.println("</body></html>");
+	}
+
 }
